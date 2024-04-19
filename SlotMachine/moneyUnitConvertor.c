@@ -21,6 +21,6 @@ const char* moneyUnitConvertor(int *money) {
 			str_money[c++] = ',';
 		str_money[c++] = buffer[i];
 	}
-	str_money[c] = '\0';
+	str_money[c] = '\0'; // 널 종료 문자 추가
 	return str_money;
 }

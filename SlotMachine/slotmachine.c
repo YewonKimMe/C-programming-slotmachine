@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include "betting.h"
 #include "moneyUnitConvertor.h"
-#include "printMoneyComma.h"
 
 #define MAX_PATTERN 7
 #define START_MONEY 1000000
@@ -13,11 +12,14 @@ int main(void)
 {
 
     int money = START_MONEY;
-    char* convertedMoeny1 = moneyUnitConvertor(&money);
+    const char* convertedMoeny1 = moneyUnitConvertor(&money);
     printf("초기 보유 금액은 %s 원 입니다.\n", convertedMoeny1);
     free(convertedMoeny1);
+
     int betMoney = betting(&money);
-    printf("배팅금액은 %d 원 입니다.\n", betMoney);
+    const char* convertedMoeny3 = moneyUnitConvertor(&betMoney);
+    printf("배팅 금액은 %s 원 입니다.\n", convertedMoeny3);
+    free(convertedMoeny3);
 
     char* convertedMoeny2 = moneyUnitConvertor(&money);
     printf("배팅 후 잔액은 %s 원 입니다.\n", convertedMoeny2);
