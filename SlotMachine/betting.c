@@ -9,7 +9,6 @@ int betting(int* money) {
 	bool betting_flag = true;
 	while (true)
 	{
-		printf("현재 보유금액은 %d 원 입니다.\n", *money);
 		printf("배팅할 금액을 입력하세요: ");
 		scanf("%d", &bettingMoney);
 		if (bettingMoney <= *money && bettingMoney > 0) {

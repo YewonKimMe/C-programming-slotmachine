@@ -128,11 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="betting.c" />
+    <ClCompile Include="moneyUnitConvertor.c" />
+    <ClCompile Include="moneyUnitConvertor.h" />
     <ClCompile Include="slotmachine.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="betting.h" />
-    <ClInclude Include="function.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
