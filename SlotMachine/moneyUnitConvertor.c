@@ -5,7 +5,11 @@
 #include <stdbool.h>
 #include <string.h>
 #include "moneyUnitConvertor.h"
-
+/*
+	파일명: moneyUnivConvertor.c
+	설명: 정수 money를 인자로 받아서 문자열 배열로 변경하고 천단위 마다 콤마(,)를 붙여 반환하는 함수
+	종류: Function
+*/
 const char* moneyUnitConvertor(int *money) {
 	char* str_money = malloc(64);
 	char buffer[64];
