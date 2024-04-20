@@ -14,14 +14,20 @@ int betting(int* money) {
 	bool betting_flag = true;
 	while (true)
 	{
-		printf("배팅할 금액을 입력하세요: ");
+		printf("배팅할 금액을 1만원 단위로 입력하세요: ");
 		scanf("%d", &bettingMoney);
 		if (bettingMoney <= *money && bettingMoney > 0) { // 배팅 머니가 보유 금액보다 작고, 0보다 클 경우
-			*money -= bettingMoney; 
-			return bettingMoney;
+			if (bettingMoney % 10000 > 0) {
+				printf("1만원 단위로만 배팅하실 수 있습니다. 다시 배팅해 주세요.\n\n");
+				while (getchar() != '\n'); // 입력 버퍼 비우기
+			}
+			else {
+				*money -= bettingMoney;
+				return bettingMoney;
+			}
 		}
 		else {
-			printf("올바르지 않은 배팅금액 입니다. 다시 입력해 주세요.\n");
+			printf("보유 금액을 초과했거나, 올바르지 않은 값을 입력하셨습니다. 다시 입력해 주세요.\n");
 			while (getchar() != '\n'); // 입력 버퍼 비우기
 		}
 	}
