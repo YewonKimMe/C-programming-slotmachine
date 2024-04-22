@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+ï»¿#define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,34 +6,33 @@
 #include "moneyUnitConvertor.h"
 
 #define MAX_PATTERN 7
-#define START_MONEY 1000000
+#define START_MONEY 10000000
 
 int main(void)
 {
-
     int money = START_MONEY;
     const char* convertedMoeny1 = moneyUnitConvertor(&money);
-    printf("ÃÊ±â º¸À¯ ±İ¾×Àº %s ¿ø ÀÔ´Ï´Ù.\n", convertedMoeny1);
+    printf("ì´ˆê¸° ë³´ìœ  ê¸ˆì•¡ì€ %s ì› ì…ë‹ˆë‹¤.\n", convertedMoeny1);
     free(convertedMoeny1);
 
     int betMoney = betting(&money);
     const char* convertedMoeny3 = moneyUnitConvertor(&betMoney);
-    printf("¹èÆÃ ±İ¾×Àº %s ¿ø ÀÔ´Ï´Ù.\n", convertedMoeny3);
+    printf("ë°°íŒ… ê¸ˆì•¡ì€ %s ì› ì…ë‹ˆë‹¤.\n", convertedMoeny3);
     free(convertedMoeny3);
 
     char* convertedMoeny2 = moneyUnitConvertor(&money);
-    printf("¹èÆÃ ÈÄ ÀÜ¾×Àº %s ¿ø ÀÔ´Ï´Ù.\n", convertedMoeny2);
+    printf("ë°°íŒ… í›„ ì”ì•¡ì€ %s ì› ì…ë‹ˆë‹¤.\n", convertedMoeny2);
     free(convertedMoeny2);
     return 0;
 }
 /*
-Ãß»óÈ­ ±â´ÉºĞ·ù
+    ì¶”ìƒí™” ê¸°ëŠ¥ë¶„ë¥˜
 
-1. ¹èÆÃ ÇÔ¼ö
+    1. ë°°íŒ… í•¨ìˆ˜
 
-2. È®·ü °ËÁõ ÇÔ¼ö
+    2. í™•ë¥  ê²€ì¦ í•¨ìˆ˜
 
-2. ÃßÃ· ÇÔ¼ö
+    2. ì¶”ì²¨ í•¨ìˆ˜
 
-3. °á°ú °ËÁõ ÇÔ¼ö
+    3. ê²°ê³¼ ê²€ì¦ í•¨ìˆ˜
 */
