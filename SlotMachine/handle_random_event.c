@@ -1,11 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define BOUNDARY_JACKPOT 0.001
+#define BOUNDARY_JACKPOT 0.005
 #define BOUNDARY_THREE_MATCH 0.01
 #define BOUNDARY_TWO_MATCH 0.05
-#define BOUNDARY_ONE_MATCH 0.2
+#define BOUNDARY_ONE_MATCH 0.3
 
 #include <stdio.h>
 #include "handle_random_event.h"
+#include "check_boundary.h"
 
 /*
 	ÆÄÀÏ¸í:	handle_random_event.c
@@ -18,20 +19,27 @@
 int handle_random_event(double probability, int* money)
 {
 	printf("[arg È®·ü°ª]: %.10f, [PERCENTAGE]: %.2f%%\n", probability, probability * 100);
-	if (0 < probability && probability < BOUNDARY_JACKPOT) { // 0 < x < jackpot
+	int boundary_result = check_boundary(probability);
+
+	switch (boundary_result)
+	{
+	case 0:
 		printf("ÀèÆÌ ´çÃ·, È®·ü°ª: %.5f\n", probability);
-	}
-	else if (BOUNDARY_JACKPOT <= probability && probability < BOUNDARY_THREE_MATCH) { // jackpot <= x < three_match
+		break;
+	case 1:
 		printf("3°³ ÀÏÄ¡, È®·ü°ª: %.5f\n", probability);
-	}
-	else if (BOUNDARY_THREE_MATCH <= probability && probability < BOUNDARY_TWO_MATCH) {
+		break;
+	case 2:
 		printf("2°³ ÀÏÄ¡, È®·ü°ª: %.5f\n", probability);
-	}
-	else if (BOUNDARY_TWO_MATCH <= probability && probability < BOUNDARY_ONE_MATCH) {
+		break;
+	case 3:
 		printf("1°³ ÀÏÄ¡, È®·ü°ª: %.5f\n", probability);
-	}
-	else {
+		break;
+	case 4:
 		printf("0°³ ÀÏÄ¡, È®·ü°ª: %.5f\n", probability);
+		break;
+	default:
+		break;
 	}
 	return 0;
 }
