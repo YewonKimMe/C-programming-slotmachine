@@ -4,4 +4,5 @@
 
 double get_random_value(void);
 
+void set_srand(void);
 #endif

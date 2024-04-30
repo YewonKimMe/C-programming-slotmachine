@@ -5,7 +5,7 @@
 #include<time.h>
 #include "get_random_value.h"
 #include "moneyUnitConvertor.h"
-
+void set_srand(void);
 /*
 	파일명:	get_random_value.c
 	설명: 자연수 x, 0<x<1 사이의 double type의 확률 변수를 반환하는 함수
@@ -14,10 +14,18 @@
 		@Return	: double
 	수정일: 2024-05-01
 */
+static int flag = 1;
 double get_random_value(void) 
 {
-	srand((unsigned)time(NULL));
+	set_srand();
 	double random_num = (double)rand() / (RAND_MAX + 1.0);
-	printf("[DEBUG]생성 랜덤값: %.6f\n", random_num);
 	return random_num;
+}
+
+void set_srand(void)
+{
+	if (flag == 1) {
+		srand((unsigned)time(NULL));
+		flag = 0;
+	}
 }
