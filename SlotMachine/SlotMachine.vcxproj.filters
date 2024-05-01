@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\percent_test">
+      <UniqueIdentifier>{a6006b4f-dea7-4ca7-879c-220ef0e20918}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\percent_test">
+      <UniqueIdentifier>{5883230f-9a3c-472c-8c93-5e64433547cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\test_util">
+      <UniqueIdentifier>{716801db-f17c-4426-9f12-04385b14c1f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\test_util">
+      <UniqueIdentifier>{d638b56a-e569-42f3-ad96-949150031836}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="slotmachine.c">
@@ -27,10 +39,46 @@
     <ClCompile Include="moneyUnitConvertor.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="get_random_value.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="get_start_mode.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="handle_random_event.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="check_boundary.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="percentage_test.c">
+      <Filter>소스 파일\percent_test</Filter>
+    </ClCompile>
+    <ClCompile Include="print_test_message.c">
+      <Filter>소스 파일\test_util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="betting.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="get_random_value.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="get_start_mode.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="handle_random_event.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="check_boundary.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="percentage_test.h">
+      <Filter>헤더 파일\percent_test</Filter>
+    </ClInclude>
+    <ClInclude Include="print_test_message.h">
+      <Filter>헤더 파일\test_util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
