@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#define TEST_NUM 500000000
+#define TEST_NUM 200000000
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,7 +38,7 @@ void percentage_test(void)
 		else
 			zero++;
 	}
-	printf("%d\n",jackpot);
+	//printf("%d\n",jackpot);
 	double jackpot_percent = ((double)jackpot / (double)TEST_NUM) * 100;
 	double three_percent = ((double)three / (double)TEST_NUM) * 100;
 	double two_percent = ((double)two / (double)TEST_NUM) * 100;
