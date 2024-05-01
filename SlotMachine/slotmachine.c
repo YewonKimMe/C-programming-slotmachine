@@ -12,6 +12,7 @@
 #include "get_random_value.h"
 #include "handle_random_event.h"
 #include "percentage_test.h"
+#include "convert_test.h"
 
 #define MAX_PATTERN 7
 #define START_MONEY 10000000
@@ -58,8 +59,14 @@ int main(void)
         }
         else // 테스트 모드_개발자용
         {
-            printf("테스트 모드로 진입합니다..\n\n");
+            printf("테스트 모드로 진입합니다..\n");
+            // 단위 테스트
+            printf("======================================================================================\n");
+            convert_test();
+            printf("======================================================================================\n");
+            // 확률 테스트
             percentage_test();
+            printf("======================================================================================\n");
             break;
         }
 
