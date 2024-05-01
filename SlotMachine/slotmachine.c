@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include<time.h>
 #include "betting.h"
-#include "moneyUnitConvertor.h"
+#include "convert_money.h"
 #include "get_start_mode.h"
 #include "get_random_value.h"
 #include "handle_random_event.h"
@@ -33,16 +33,16 @@ int main(void)
         {
             printf("------------------------------------------------\n\n");
             printf("슬롯머신 게임을 시작합니다.\n");
-            const char* convertedMoeny1 = moneyUnitConvertor(&money);
+            const char* convertedMoeny1 = convert_money(&money);
             printf("초기 보유 금액은 %s 원 입니다.\n", convertedMoeny1);
             free(convertedMoeny1);
 
             int betMoney = betting(&money);
-            const char* convertedMoeny3 = moneyUnitConvertor(&betMoney);
+            const char* convertedMoeny3 = convert_money(&betMoney);
             printf("배팅 금액은 %s 원 입니다.\n", convertedMoeny3);
             free(convertedMoeny3);
 
-            char* convertedMoeny2 = moneyUnitConvertor(&money);
+            char* convertedMoeny2 = convert_money(&money);
             printf("배팅 후 잔액은 %s 원 입니다.\n", convertedMoeny2);
             free(convertedMoeny2);
 

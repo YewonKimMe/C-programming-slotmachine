@@ -4,15 +4,15 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include "moneyUnitConvertor.h"
+#include "convert_money.h"
 /*
-	파일명: moneyUnivConvertor.c
+	파일명: convert_money.c
 	설명: 정수 money를 인자로 받아서 문자열 배열로 변경하고 천단위 마다 콤마(,)를 붙여 반환하는 함수
 	종류: Function
 	수정일: 2024-04-20
 	작성자: 김예원
 */
-const char* moneyUnitConvertor(int *money) {
+const char* convert_money(int *money) {
 	char* str_money = malloc(64);
 	char buffer[64];
 	int mod;

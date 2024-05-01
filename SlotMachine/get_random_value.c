@@ -4,7 +4,6 @@
 #include<stdlib.h>
 #include<time.h>
 #include "get_random_value.h"
-#include "moneyUnitConvertor.h"
 void set_srand(void);
 /*
 	ÆÄÀÏ¸í:	get_random_value.c

@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "betting.h"
-#include "moneyUnitConvertor.h"
+#include "convert_money.h"
 
 /*
 	파일명: betting.c
@@ -31,7 +31,7 @@ int betting(int* money) { // 변수 주소값을 parameter 로 가짐
 			}
 		}
 		else {
-			char* currentMoney = moneyUnitConvertor(money);
+			char* currentMoney = convert_money(money);
 			printf("보유 금액 %s 원을 초과했거나, 올바르지 않은 값을 입력하셨습니다. 다시 입력해 주세요.\n", currentMoney);
 			free(currentMoney);
 			while (getchar() != '\n'); // 입력 버퍼 비우기
