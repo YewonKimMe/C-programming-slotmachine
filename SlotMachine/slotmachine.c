@@ -22,12 +22,17 @@ int main(void)
     int game_flag = 1;
     int money = START_MONEY;
 
-    while (game_flag && money > 0)
+    while (game_flag)
     {
+        if (!(money > 0)) {
+            printf("[알림] 게임 머니를 모두 소진하여 게임을 종료합니다.\n");
+            break;
+        }
         int game_mode = get_start_mode(); // 사용자로부터 게임 시작 모드 획득
         if (game_mode == START_GAME) // 게임 시작
         {
-            printf("게임을 시작합니다.\n");
+            printf("------------------------------------------------\n\n");
+            printf("슬롯머신 게임을 시작합니다.\n");
             const char* convertedMoeny1 = moneyUnitConvertor(&money);
             printf("초기 보유 금액은 %s 원 입니다.\n", convertedMoeny1);
             free(convertedMoeny1);
@@ -43,7 +48,7 @@ int main(void)
 
             
             double probability = get_random_value(); // 추첨
-            int k = handle_random_event(probability, &money);
+            int k = handle_random_event(probability, &money, betMoney);
 
         }
         else if (game_mode == END_GAME) // 게임 종료
@@ -53,7 +58,7 @@ int main(void)
         }
         else // 테스트 모드_개발자용
         {
-            printf("테스트 모드로 진입합니다..\n");
+            printf("테스트 모드로 진입합니다..\n\n");
             percentage_test();
             break;
         }
