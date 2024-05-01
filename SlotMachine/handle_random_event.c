@@ -3,6 +3,11 @@
 #define BOUNDARY_THREE_MATCH 0.01
 #define BOUNDARY_TWO_MATCH 0.05
 #define BOUNDARY_ONE_MATCH 0.3
+#define JACKPOT_RATIO 20
+#define THREEMATCH_RATIO 10
+#define TWOMATCH_RATIO 3
+#define ONEMATCH_RATIO 1
+
 
 #include <stdio.h>
 #include "handle_random_event.h"
@@ -16,7 +21,7 @@
 		@Return	: int
 	¼öÁ¤ÀÏ: 2024-05-01
 */
-int handle_random_event(double probability, int* money)
+int handle_random_event(double probability, int* money, int betting_money)
 {
 	printf("[arg È®·ü°ª]: %.10f, [PERCENTAGE]: %.2f%%\n", probability, probability * 100);
 	int boundary_result = check_boundary(probability);
@@ -25,15 +30,19 @@ int handle_random_event(double probability, int* money)
 	{
 	case 0:
 		printf("ÀèÆÌ ´çÃ·, È®·ü°ª: %.5f\n", probability);
+		*money += betting_money * JACKPOT_RATIO;
 		break;
 	case 1:
 		printf("3°³ ÀÏÄ¡, È®·ü°ª: %.5f\n", probability);
+		*money += betting_money * THREEMATCH_RATIO;
 		break;
 	case 2:
 		printf("2°³ ÀÏÄ¡, È®·ü°ª: %.5f\n", probability);
+		*money += betting_money * TWOMATCH_RATIO;
 		break;
 	case 3:
 		printf("1°³ ÀÏÄ¡, È®·ü°ª: %.5f\n", probability);
+		*money += betting_money * ONEMATCH_RATIO;
 		break;
 	case 4:
 		printf("0°³ ÀÏÄ¡, È®·ü°ª: %.5f\n", probability);
