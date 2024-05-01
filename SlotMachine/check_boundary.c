@@ -1,8 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #define BOUNDARY_JACKPOT 0.001
 #define BOUNDARY_THREE_MATCH 0.01
-#define BOUNDARY_TWO_MATCH 0.05
-#define BOUNDARY_ONE_MATCH 0.3
+#define BOUNDARY_TWO_MATCH 0.1
+#define BOUNDARY_ONE_MATCH 0.45
 
 #define CODE_JACKPOT 0
 #define CODE_THREE_MATCH 1
@@ -23,19 +23,19 @@
 */
 int check_boundary(double probability)
 {
-	if (0 < probability && probability <= BOUNDARY_JACKPOT) { // 0 < x < jackpot
+	if (0 < probability && probability <= BOUNDARY_JACKPOT) { // 0 < x < BOUNDARY_JACKPOT
 		return CODE_JACKPOT;
 	}
-	else if (BOUNDARY_JACKPOT < probability && probability <= BOUNDARY_THREE_MATCH) { // jackpot <= x < three_match
+	else if (BOUNDARY_JACKPOT < probability && probability <= BOUNDARY_THREE_MATCH) { // BOUNDARY_JACKPOT < x <= BOUNDARY_THREE_MATCH
 		return CODE_THREE_MATCH;
 	}
-	else if (BOUNDARY_THREE_MATCH < probability && probability <= BOUNDARY_TWO_MATCH) {
+	else if (BOUNDARY_THREE_MATCH < probability && probability <= BOUNDARY_TWO_MATCH) { // BOUNDARY_THREE_MATCH < x <= BOUNDARY_TWO_MATCH
 		return CODE_TWO_MATCH;
 	}
-	else if (BOUNDARY_TWO_MATCH < probability && probability <= BOUNDARY_ONE_MATCH) {
+	else if (BOUNDARY_TWO_MATCH < probability && probability <= BOUNDARY_ONE_MATCH) { // BOUNDARY_TWO_MATCH < x <= BOUNDARY_ONE_MATCH
 		return CODE_ONE_MATCH;
 	}
-	else if (BOUNDARY_ONE_MATCH < probability && probability <= 1){
+	else if (BOUNDARY_ONE_MATCH < probability && probability <= 1){ // BOUNDARY_ONE_MATCH < x <= 1
 		return CODE_NO_MATCH;
 	}
 }
