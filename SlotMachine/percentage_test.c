@@ -20,6 +20,12 @@
 
 void check_result(double target, double first, double second, char* success_message, char* fail_message);
 
+/*
+	파일명:	percentage_test.c
+	설명: 선택지별 예측 확률과 실제 확률을 확인하는 테스트 코드
+	종류: Function
+	수정일: 2024-05-02
+*/
 void percentage_test(void)
 {
 	clock_t start, end;
@@ -32,7 +38,7 @@ void percentage_test(void)
 	int zero = 0;
 	int try_num = TEST_NUM;
 	const char* converted_try_num = convert_money(&try_num);
-	printf("\n");
+	//printf("\n");
 	print_test_message("확률 변수 테스트");
 	print_test_message("반복 실행을 통한 각 선택지의 확률 테스트를 시작합니다.");
 	print_test_message_str("수행 횟수 (회)", converted_try_num);

@@ -7,6 +7,13 @@
 #include "test_time_cal.h"
 #include "convert_test.h"
 #include "convert_money.h"
+
+/*
+	파일명:	convert_test.c
+	설명: convert_money.c 의 convert_money() 기능 테스트
+	종류: Function
+	수정일: 2024-05-02
+*/
 void convert_test()
 {
 	int money = 1000000;
@@ -14,7 +21,7 @@ void convert_test()
 	clock_t start, end;
 	double cpu_time_used;
 
-	printf("\n");
+	//printf("\n");
 	print_test_message("숫자 천단위 콤마 기능 테스트");
 	print_test_message_num("초기 정수값", money);
 

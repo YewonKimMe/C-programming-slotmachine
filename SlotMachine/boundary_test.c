@@ -7,6 +7,12 @@
 
 void check(int target, int code);
 
+/*
+	파일명:	boundary_test.c
+	설명: check_boundary.c 의 check_boundary() 테스트 
+	종류: Function
+	수정일: 2024-05-02
+*/
 void boundary_test()
 {
 	double jackpot = 0.0009;
