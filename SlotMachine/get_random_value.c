@@ -17,7 +17,7 @@ static int flag = 1;
 double get_random_value(void) 
 {
 	set_srand();
-	double random_num = (double)rand() / (RAND_MAX + 1.0);
+	double random_num = (double)rand() / (RAND_MAX + 1.0); // 0 < x < 1 사이의 실수 생성
 	return random_num;
 }
 
