@@ -23,7 +23,7 @@
 */
 int check_boundary(double probability)
 {
-	if (0 < probability && probability <= BOUNDARY_JACKPOT) { // 0 < x <= BOUNDARY_JACKPOT
+	if (0 <= probability && probability <= BOUNDARY_JACKPOT) { // 0 < x <= BOUNDARY_JACKPOT
 		return CODE_JACKPOT;
 	}
 	else if (BOUNDARY_JACKPOT < probability && probability <= BOUNDARY_THREE_MATCH) { // BOUNDARY_JACKPOT < x <= BOUNDARY_THREE_MATCH
