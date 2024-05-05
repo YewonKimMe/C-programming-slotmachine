@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="betting.c" />
+    <ClCompile Include="boundary_test.c" />
     <ClCompile Include="check_boundary.c" />
     <ClCompile Include="convert_test.c" />
     <ClCompile Include="get_random_value.c" />
@@ -142,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="betting.h" />
+    <ClInclude Include="boundary_test.h" />
     <ClInclude Include="check_boundary.h" />
     <ClInclude Include="convert_test.h" />
     <ClInclude Include="get_random_value.h" />
