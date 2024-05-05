@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 #include "percentage_test.h"
 #include "get_random_value.h"
@@ -78,24 +79,29 @@ void percentage_test(void)
 	print_percent_test_result("테스트 결과_1_MATCH", one, TEST_NUM, one_percent);
 	print_percent_test_result("테스트 결과_0_MATCH", zero, TEST_NUM, zero_percent);
 
-	check_result(jackpot_percent, 0, BOUNDARY_JACKPOT * 100, "JACKPOT 확률이 예상값 범위입니다.", "JACKPOT 확률이 예상값 범위 밖입니다.");
-	check_result(three_percent, BOUNDARY_JACKPOT * 100, BOUNDARY_THREE_MATCH * 100, "3개 일치 확률이 예상값 범위입니다.", "3개 일치 확률이 예상값 범위 밖입니다.");
-	check_result(two_percent, BOUNDARY_THREE_MATCH * 100, BOUNDARY_TWO_MATCH * 100, "2개 일치 확률이 예상값 범위입니다.", "2개 일치 확률이 예상값 범위 밖입니다.");
-	check_result(one_percent, BOUNDARY_TWO_MATCH * 100, BOUNDARY_ONE_MATCH * 100, "1개 일치 확률이 예상값 범위입니다.", "1개 일치 확률이 예상값 범위 밖입니다.");
-	check_result(zero_percent, BOUNDARY_ONE_MATCH * 100, BOUNDARY_MAX*100, "0개 일치 확률이 예상값 범위입니다.", "0개 일치 확률이 예상값 범위 밖입니다.");
+	check_result(jackpot_percent, 0, BOUNDARY_JACKPOT * 100, "[JACKPOT]-확률이 예상값 범위입니다.", "[JACKPOT]-확률이 예상값 범위 밖입니다. 오차범위(%p): ");
+	check_result(three_percent, BOUNDARY_JACKPOT * 100, BOUNDARY_THREE_MATCH * 100, "[3_MATCH]-확률이 예상값 범위입니다.", "[3_MATCH]-확률이 예상값 범위 밖입니다. 오차범위(%p): ");
+	check_result(two_percent, BOUNDARY_THREE_MATCH * 100, BOUNDARY_TWO_MATCH * 100, "[2_MATCH]-확률이 예상값 범위입니다.", "[2_MATCH]-확률이 예상값 범위 밖입니다. 오차범위(%p): ");
+	check_result(one_percent, BOUNDARY_TWO_MATCH * 100, BOUNDARY_ONE_MATCH * 100, "[1_MATCH]-확률이 예상값 범위입니다.", "[1_MATCH]-확률이 예상값 범위 밖입니다. 오차범위(%p): ");
+	check_result(zero_percent, BOUNDARY_ONE_MATCH * 100, BOUNDARY_MAX*100, "[0_MATCH]-확률이 예상값 범위입니다.", "[0_MATCH]-확률이 예상값 범위 밖입니다. 오차범위(%p): ");
 	
 	cpu_time_used = test_time_cal(start, end);
 	print_test_time(cpu_time_used);
 }
 
 /*
+	check_result
+
 	first < target <= second 검사 함수
-	second는 check_boundary의 경계값
+	first, second는 check_boundary의 경계값 * 100
 */
 void check_result(double target, double first, double second, char* success_message, char* fail_message)
 {
 	if (target > first && target <= second) // 목표확률 target 값이 확률구간 first보다 크고 확률구간 second 보다 같거나 작은 경우 
 		print_test_success_message(success_message);
 	else
-		print_test_fail_message(fail_message);
+	{
+		double diff = second - target; // 확률이 경계값 보다 큰 경우 설정확률 오차 발생, 오차 %p
+		print_test_fail_message(fail_message, fabs(diff));
+	}
 }
