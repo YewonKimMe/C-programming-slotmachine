@@ -35,7 +35,7 @@ void convert_test()
 	if (strcmp(converted_money, expected_str) == 0) //변환된 숫자와 예상 문자열이 일치하는 경우
 		print_test_success_message("변경값이 예상값과 일치합니다.");
 	else
-		print_test_fail_message("변경값이 예상값과 일치하지 않습니다.");
+		print_test_fail_message("변경값이 예상값과 일치하지 않습니다.", 0.0);
 
 	print_test_time(cpu_time_used);
 }
