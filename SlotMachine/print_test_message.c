@@ -43,15 +43,15 @@ void print_test_success_message(char* message)
 }
 
 // print_test_fail_message: 문자열 포인터 message를 받아 테스트 실패 메세지를 빨간색으로 출력
-void print_test_fail_message(char* message)
+void print_test_fail_message(char* message, double value)
 {
-	printf("%s[TEST_FAIL]\t%s%s\n", RED, message, RESET);
+	printf("%s[TEST_FAIL]\t%s%f%s\n", RED, message, value, RESET);
 }
 
 // print_percent_test_result: 문자열 포인터 message, 정수 cnt, 정수 attmpt_cnt, 실수 percentage를 받아 확률테스트 결과를 출력
 void print_percent_test_result(char* message, int cnt, int attempt_cnt, double percentage)
 {
-	printf("[TEST_RESULT]\t%s,\t등장 횟수={%10d},\t시도 횟수={%d},\t확률 테스트 결과={%-5.2f %%}\n", message, cnt, attempt_cnt, percentage);
+	printf("[TEST_RESULT]\t%s,\t등장 횟수={%10d},\t시도 횟수={%d},\t확률 테스트 결과={%-12.9f %% ≒ %-5.2f %%}\n", message, cnt, attempt_cnt, percentage, percentage);
 }
 
 // print_test_time: 실수 used_time을 받아 테스트 수행 시간을 포멧에 맞추어 소수점 8자리까지 출력

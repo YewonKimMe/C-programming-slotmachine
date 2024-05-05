@@ -14,7 +14,7 @@ void print_percent_test_result(char* message, int cnt, int attempt_cnt, double p
 
 void print_test_success_message(char* message);
 
-void print_test_fail_message(char* message);
+void print_test_fail_message(char* message, double value);
 
 void print_test_time(double used_time);
 
