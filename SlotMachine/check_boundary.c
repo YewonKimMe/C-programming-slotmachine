@@ -3,6 +3,7 @@
 #define BOUNDARY_THREE_MATCH 0.011 // 1%
 #define BOUNDARY_TWO_MATCH 0.111 // 10%
 #define BOUNDARY_ONE_MATCH 0.461 // 35%
+#define BOUNDARY_MAX 1.0
 
 #define CODE_JACKPOT 0
 #define CODE_THREE_MATCH 1
@@ -23,7 +24,7 @@
 */
 int check_boundary(double probability)
 {
-	if (0 <= probability && probability <= BOUNDARY_JACKPOT) { // 0 < x <= BOUNDARY_JACKPOT
+	if (0 < probability && probability <= BOUNDARY_JACKPOT) { // 0 < x <= BOUNDARY_JACKPOT
 		return CODE_JACKPOT;
 	}
 	else if (BOUNDARY_JACKPOT < probability && probability <= BOUNDARY_THREE_MATCH) { // BOUNDARY_JACKPOT < x <= BOUNDARY_THREE_MATCH
@@ -37,5 +38,29 @@ int check_boundary(double probability)
 	}
 	else if (BOUNDARY_ONE_MATCH < probability && probability <= 1){ // BOUNDARY_ONE_MATCH < x <= 1
 		return CODE_NO_MATCH;
+	}
+}
+
+// 경계값을 획득하는 함수
+double get_boundary_const(int code)
+{
+	switch (code) {
+	case CODE_JACKPOT:
+		return BOUNDARY_JACKPOT;
+
+	case CODE_THREE_MATCH:
+		return BOUNDARY_THREE_MATCH;
+
+	case CODE_TWO_MATCH:
+		return BOUNDARY_TWO_MATCH;
+
+	case CODE_ONE_MATCH:
+		return BOUNDARY_ONE_MATCH;
+
+	case CODE_NO_MATCH:
+		return BOUNDARY_MAX - (BOUNDARY_JACKPOT + BOUNDARY_THREE_MATCH + BOUNDARY_TWO_MATCH + BOUNDARY_ONE_MATCH);
+
+	default:
+		return -1; // 예기치 않은 코드에 대한 반환 값
 	}
 }
