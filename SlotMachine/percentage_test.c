@@ -1,9 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #define TEST_NUM 100000000
-#define BOUNDARY_JACKPOT 0.001 // 0.1%
-#define BOUNDARY_THREE_MATCH 0.011 // 1%
-#define BOUNDARY_TWO_MATCH 0.111 // 10%
-#define BOUNDARY_ONE_MATCH 0.461 // 35%
 
 #define BOUNDARY_MAX 1
 
@@ -11,6 +7,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <assert.h>
 
 #include "percentage_test.h"
 #include "get_random_value.h"
@@ -32,11 +29,25 @@ void percentage_test(void)
 	clock_t start, end;
 	double cpu_time_used;
 
+	// 각 선택지 별 등장 횟수를 저장하는 변수들
 	int jackpot = 0;
 	int three = 0;
 	int two = 0;
 	int one = 0;
 	int zero = 0;
+
+	const double BOUNDARY_JACKPOT = get_boundary_const(0);
+	const double BOUNDARY_THREE_MATCH = get_boundary_const(1);
+	const double BOUNDARY_TWO_MATCH = get_boundary_const(2);
+	const double BOUNDARY_ONE_MATCH = get_boundary_const(3);
+	
+	assert(BOUNDARY_JACKPOT >= 0);
+	assert(BOUNDARY_THREE_MATCH >= 0);
+	assert(BOUNDARY_TWO_MATCH >= 0);
+	assert(BOUNDARY_ONE_MATCH >= 0);
+
+
+	// 시도 횟수
 	int try_num = TEST_NUM;
 	const char* converted_try_num = convert_money(&try_num);
 	//printf("\n");
@@ -45,6 +56,7 @@ void percentage_test(void)
 	print_test_message_str("수행 횟수 (회)", converted_try_num);
 	print_test_message("현재 테스트가 실행중 입니다...\n");
 
+	// cpu 사용시간 체크 시작
 	start = clock();
 
 	for (int i = 0; i < TEST_NUM; i++) {
