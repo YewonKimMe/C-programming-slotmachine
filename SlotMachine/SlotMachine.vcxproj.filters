@@ -66,6 +66,12 @@
     <ClCompile Include="boundary_test.c">
       <Filter>소스 파일\test</Filter>
     </ClCompile>
+    <ClCompile Include="make_selection.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="get_selection.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="betting.h">
@@ -97,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="boundary_test.h">
       <Filter>헤더 파일\test</Filter>
+    </ClInclude>
+    <ClInclude Include="make_selection.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="get_selection.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

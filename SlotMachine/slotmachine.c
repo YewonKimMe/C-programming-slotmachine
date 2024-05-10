@@ -2,6 +2,9 @@
 #define START_GAME 1
 #define END_GAME 0
 #define TEST_MODE 9
+#define GREEN "\033[32m"
+#define RED "\033[31m"
+#define RESET "\033[0m"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,7 +13,9 @@
 #include "convert_money.h"
 #include "get_start_mode.h"
 #include "get_random_value.h"
+#include "check_boundary.h"
 #include "handle_random_event.h"
+#include "get_selection.h"
 #include "percentage_test.h"
 #include "convert_test.h"
 #include "boundary_test.h"
@@ -23,6 +28,8 @@ int main(void)
 {   
     int game_flag = 1;
     int money = START_MONEY;
+    int user_bat[3] = { 0, 0, 0 };
+    int prob_random_selected[3] = { 0,0,0 };
 
     while (game_flag)
     {
@@ -48,13 +55,17 @@ int main(void)
             printf("배팅 후 잔액은 %s 원 입니다.\n", convertedMoeny2);
             free(convertedMoeny2);
 
-            // TODO 사용자가 배팅 숫자를 입력하는 함수 추가
-
+            // 사용자가 0~5에서 3개의 숫자를 선택
+            int result = get_selection(user_bat);
+            if (result == 1)
+                printf("배팅한 숫자는 %s[%d, %d, %d]%s 입니다.\n", GREEN, user_bat[0], user_bat[1], user_bat[2], RESET);
             
             double probability = get_random_value(); // 추첨
 
+            int prob_code = check_boundary(probability);
+
             // TODO 사용자 배팅 숫자와 추첨 숫자로 랜덤 결과를 출력하는 함수 추가
-            int k = handle_random_event(probability, &money, betMoney);
+            int k = handle_random_event(probability, prob_code, &money, betMoney);
 
 
         }

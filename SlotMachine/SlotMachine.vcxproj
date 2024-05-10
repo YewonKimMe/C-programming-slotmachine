@@ -132,10 +132,12 @@
     <ClCompile Include="check_boundary.c" />
     <ClCompile Include="convert_test.c" />
     <ClCompile Include="get_random_value.c" />
+    <ClCompile Include="get_selection.c" />
     <ClCompile Include="get_start_mode.c" />
     <ClCompile Include="handle_random_event.c" />
     <ClCompile Include="convert_money.c" />
     <ClCompile Include="convert_money.h" />
+    <ClCompile Include="make_selection.c" />
     <ClCompile Include="percentage_test.c" />
     <ClCompile Include="print_test_message.c" />
     <ClCompile Include="slotmachine.c" />
@@ -147,8 +149,10 @@
     <ClInclude Include="check_boundary.h" />
     <ClInclude Include="convert_test.h" />
     <ClInclude Include="get_random_value.h" />
+    <ClInclude Include="get_selection.h" />
     <ClInclude Include="get_start_mode.h" />
     <ClInclude Include="handle_random_event.h" />
+    <ClInclude Include="make_selection.h" />
     <ClInclude Include="percentage_test.h" />
     <ClInclude Include="print_test_message.h" />
     <ClInclude Include="test_time_cal.h" />
