@@ -21,12 +21,10 @@
 		@Return	: int
 	¼öÁ¤ÀÏ: 2024-05-01
 */
-int handle_random_event(double probability, int* money, int betting_money)
+int handle_random_event(double probability, int prob_code, int* money, int betting_money)
 {
-	printf("[arg È®·ü°ª]: %.10f, [PERCENTAGE]: %.2f%%\n", probability, probability * 100);
-	int boundary_result = check_boundary(probability);
 
-	switch (boundary_result)
+	switch (prob_code)
 	{
 	case 0:
 		printf("ÀèÆÌ ´çÃ·, È®·ü°ª: %.5f\n", probability);
