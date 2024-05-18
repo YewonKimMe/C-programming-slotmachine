@@ -24,7 +24,7 @@ void array_shuffle(int arr[], int n) {
     파일명:	make_selection.c
     설명: 결과 code와, 유저 배팅 입력값 배열과, 만들어질 배열을 입력받아 결과코드에 따른 배열을 만드는 함수
     종류: Function
-        @Param	: proability(double), money(int*)
+        @Param	: code(int), user_selected[3](int array[3]), to_be_made[3](int array[3]) 
         @Return	: int
     수정일: 2024-05-01
 */
