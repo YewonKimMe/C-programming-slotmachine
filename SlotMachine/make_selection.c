@@ -40,14 +40,17 @@ int make_selection(int code, int user_selected[3], int to_be_made[3])
             to_be_made[i] = user_selected[i]; // 유저가 입력한 값을 to_be_made에 그대로 복사한다
         }
     }
-    else { // 나머지의 경우 중
+    else { // 나머지의 경우 중 TODO 수정필요
         int count = (code == CODE_TWO_MATCH) ? 2 : 1; // 2개가 일치했는지 확인하고 일치한 경우 횟수를 2로 세팅, 아닌 경우 횟수를 1로 세팅
         int indices[3] = { 0, 1, 2 }; // 만들어질 배열의 인덱스 번호
+        int remain = 3 - count;
         array_shuffle(indices, 3); // 만들어질 배열의 인덱스 번호를 랜덤하게 섞는다
 
         for (int i = 0; i < count; i++) {
-            to_be_made[indices[i]] = user_selected[i]; // 일치한 갯수 만큼 만들어질 배열에 유저가 입력한 배열[i]를 일치한 갯수 count만큼 랜덤한 위치indices[i]에 복사한다.
+            to_be_made[indices[i]] = user_selected[indices[i]]; // 일치한 갯수 만큼 만들어질 배열에 유저가 입력한 배열[i]를 일치한 갯수 count만큼 랜덤한 위치indices[i]에 복사한다.
         }
+
+        //TODO 수정 필요
 
         for (int i = count; i < 3; i++) {
             int random_value;
