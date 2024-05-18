@@ -14,12 +14,15 @@
 		@Return	: 1(int), 0(int), 9999(int)
 	수정일: 2024-05-01
 */
+extern const char* blue;
+extern const char* red;
+extern const char* reset;
 int get_start_mode(void)
 {
 	int game_mode;
 	while (1) // 특정 케이스를 입력 받을 동안 무한 반복
 	{
-		printf("게임을 시작하시려면 키보드의 [1]을 입력해 주세요. 종료하시려면 [0]을 입력해 주세요.\n>>");
+		printf("게임을 시작하시려면 키보드의 [%s1%s]을 입력해 주세요. 종료하시려면 [%s0%s]을 입력해 주세요.\n>>", blue, reset, red, reset);
 		scanf("%d", &game_mode);
 		if (game_mode == START_GAME) // 게임 시작
 			return START_GAME;

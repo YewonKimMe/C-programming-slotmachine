@@ -13,6 +13,13 @@
 #include "handle_random_event.h"
 #include "check_boundary.h"
 
+extern const char* red;
+extern const char* green;
+extern const char* blue;
+extern const char* yellow;
+extern const char* orange;
+extern const char* reset;
+
 /*
 	파일명:	handle_random_event.c
 	설명: 확률변수값을 인자로 받아 변수 경계값 별로 추첨 처리 및 상금 가감을 하는 함수
@@ -23,27 +30,27 @@
 */
 int handle_random_event(double probability, int prob_code, int* money, int betting_money)
 {
-
+	printf("%s추첨 결과>>\t%s", orange, reset);
 	switch (prob_code)
 	{
 	case 0:
-		printf("잭팟 당첨, 확률값: %.5f\n", probability);
+		printf("%s[$$$$$$ >>> @ 잭팟 당첨 @ <<< $$$$$$]%s\n", yellow, reset);
 		*money += betting_money * JACKPOT_RATIO;
 		break;
 	case 1:
-		printf("3개 일치, 확률값: %.5f\n", probability);
+		printf("%s3개 일치%s\n", blue, reset);
 		*money += betting_money * THREEMATCH_RATIO;
 		break;
 	case 2:
-		printf("2개 일치, 확률값: %.5f\n", probability);
+		printf("%s2개 일치%s\n", green, reset);
 		*money += betting_money * TWOMATCH_RATIO;
 		break;
 	case 3:
-		printf("1개 일치, 확률값: %.5f\n", probability);
+		printf("%s1개 일치%s\n", green, reset);
 		*money += betting_money * ONEMATCH_RATIO;
 		break;
 	case 4:
-		printf("0개 일치, 확률값: %.5f\n", probability);
+		printf("%s0개 일치%s\n", red, reset);
 		break;
 	default:
 		break;
