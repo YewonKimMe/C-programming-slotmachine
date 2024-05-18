@@ -11,7 +11,7 @@ int get_selection(int input[3])
 	
 	while (flag) {
 		int cnt = 0;
-		printf("0~5 사이의 배팅할 숫자 3개를 공백을 두고 입력하세요: ");
+		printf("\n0~5 사이의 배팅할 숫자 3개를 공백을 두고 입력하세요: ");
 		int result = scanf("%d %d %d", &input[0], &input[1], &input[2]);
 		if (result != 3) {
 			printf("입력값이 잘못되었습니다. 3개의 정수를 입력해야 합니다.\n");
