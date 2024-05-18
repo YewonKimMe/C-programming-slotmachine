@@ -4,11 +4,14 @@
 #define TEST_MODE 9
 #define GREEN "\033[32m"
 #define RED "\033[31m"
+#define BLUE "\033[38;5;117m"
+#define YELLOW "\033[33m"
+#define ORANGE "\033[38;5;208m"
 #define RESET "\033[0m"
 
 #include <stdio.h>
 #include <stdlib.h>
-#include<time.h>
+#include <time.h>
 #include "betting.h"
 #include "convert_money.h"
 #include "get_start_mode.h"
@@ -16,6 +19,8 @@
 #include "check_boundary.h"
 #include "handle_random_event.h"
 #include "get_selection.h"
+#include "make_selection.h"
+#include "print_selection_raffle_result.h"
 #include "percentage_test.h"
 #include "convert_test.h"
 #include "boundary_test.h"
@@ -24,12 +29,19 @@
 #define START_MONEY 10000000
 #define JACKPOT_MULTIPLE 20
 
+const char* green = GREEN;
+const char* red = RED;
+const char* blue = BLUE;
+const char* yellow = YELLOW;
+const char* orange = ORANGE;
+const char* reset = RESET;
+
 int main(void)
 {   
     int game_flag = 1;
     int money = START_MONEY;
-    int user_bat[3] = { 0, 0, 0 };
-    int prob_random_selected[3] = { 0,0,0 };
+    int user_bat[3] = { 0, 0, 0 }; // 유저가 배팅한 결과를 담는 배열
+    int prob_random_selected[3] = { 0,0,0 }; // 추첨 결과로 생성될 결과 배열
 
     while (game_flag)
     {
@@ -42,17 +54,19 @@ int main(void)
         {
             printf("------------------------------------------------\n\n");
             printf("슬롯머신 게임을 시작합니다.\n");
+            printf("사용자는 0 ~ 5 사이의 숫자 3개를 배팅할 수 있으며, 배팅한 숫자와 추첨 숫자 및 순서가 일치할 경우 일치 판정을 획득합니다.\nㄴ예시) 사용자 입력: 3 5 4, 추첨 결과: 3 5 1 -> 2개 일치\n");
+            
             const char* convertedMoeny1 = convert_money(&money);
-            printf("초기 보유 금액은 %s 원 입니다.\n", convertedMoeny1);
+            printf("초기 보유 금액은 %s%s%s 원 입니다.\n", green, convertedMoeny1, reset);
             free(convertedMoeny1);
 
             int betMoney = betting(&money);
             const char* convertedMoeny3 = convert_money(&betMoney);
-            printf("배팅 금액은 %s 원 입니다.\n", convertedMoeny3);
+            printf("배팅 금액은 %s%s%s 원 입니다.\n", red, convertedMoeny3, reset);
             free(convertedMoeny3);
 
             char* convertedMoeny2 = convert_money(&money);
-            printf("배팅 후 잔액은 %s 원 입니다.\n", convertedMoeny2);
+            printf("배팅 후 잔액은 %s%s%s 원 입니다.\n", blue, convertedMoeny2, reset);
             free(convertedMoeny2);
 
             // 사용자가 0~5에서 3개의 숫자를 선택
@@ -63,10 +77,15 @@ int main(void)
             double probability = get_random_value(); // 추첨
 
             int prob_code = check_boundary(probability);
-
+            make_selection(prob_code, user_bat, prob_random_selected);
             // TODO 사용자 배팅 숫자와 추첨 숫자로 랜덤 결과를 출력하는 함수 추가
             int k = handle_random_event(probability, prob_code, &money, betMoney);
 
+            print_selection_raffle_result(user_bat, prob_random_selected); // 유저 배팅 숫자와 추첨된 숫자를 출력
+            
+            char* convertedMoeny4 = convert_money(&money);
+            printf("현재 잔액은 %s%s%s 원 입니다.\n", green, convertedMoeny4, reset);
+            free(convertedMoeny4);
 
         }
         else if (game_mode == END_GAME) // 게임 종료
@@ -101,7 +120,9 @@ int main(void)
 
     2. 확률 검증 함수
 
-    2. 추첨 함수
+    3. 추첨 함수
 
-    3. 결과 검증 함수
+    4. 결과 검증 함수
+
+    5. 게임 결과 파일 저장 함수
 */
