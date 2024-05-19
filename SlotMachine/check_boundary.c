@@ -14,6 +14,11 @@
 #include <stdio.h>
 #include "check_boundary.h"
 
+const int code_jackpot = CODE_JACKPOT;
+const int code_three_match = CODE_THREE_MATCH;
+const int code_two_match = CODE_TWO_MATCH;
+const int code_one_match = CODE_ONE_MATCH;
+const int code_no_match = CODE_NO_MATCH;
 /*
 	파일명:	check_boundary.c
 	설명: 랜덤값을 받아 경계값에 따른 조건 처리, 확률 관련 함수(확률 경계값이 이곳에 선언되어 있음)
