@@ -42,10 +42,16 @@ void print_test_success_message(char* message)
 	printf("%s[TEST_SUCCESS]\t%s%s\n", GREEN, message, RESET);
 }
 
-// print_test_fail_message: 문자열 포인터 message를 받아 테스트 실패 메세지를 빨간색으로 출력
+// print_test_fail_message: 문자열 포인터 message, double value를 받아 테스트 실패 메세지를 빨간색으로 출력
 void print_test_fail_message(char* message, double value)
 {
 	printf("%s[TEST_FAIL]\t%s%f%s\n", RED, message, value, RESET);
+}
+
+// print_test_fail_message: 문자열 포인터 message를 받아 테스트 실패 메세지를 빨간색으로 출력
+void print_test_fail_message_default(char* message)
+{
+	printf("%s[TEST_FAIL]\t%s%s\n", RED, message, RESET);
 }
 
 // print_percent_test_result: 문자열 포인터 message, 정수 cnt, 정수 attmpt_cnt, 실수 percentage를 받아 확률테스트 결과를 출력
