@@ -5,6 +5,13 @@
 extern const char* green;
 extern const char* yellow;
 extern const char* reset;
+
+/*
+	파일명:	print_selection_raffle_result.c
+	설명:	유저 배팅 배열, 생성된 배열 두개를 인자로 받아 일치 여부를 확인하고 출력하는 함수
+	종류:	Function
+	수정일: 2024-05-19
+*/
 void print_selection_raffle_result(int user_bat[3], int prob_random_selected[3])
 {
 	printf("\t\t===================================\n");

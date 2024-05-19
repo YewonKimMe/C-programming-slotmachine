@@ -3,7 +3,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// 누적 금액을 변경하는 함수, 기존 파일을 삭제하고 갱신된 누적금액을 다시 작성
+/*
+	파일명:	change_accumulated_reward.c
+	설명:	누적 금액을 변경하는 함수, 기존 파일을 삭제하고 갱신된 누적금액을 다시 작성하여 파일을 생성하는 함수
+	종류:	Function
+	수정일: 2024-05-19
+*/
 int change_accumulated_reward(int exist_acc_money, int use_money, char* file_name)
 {
 	int new_accumulated_reward = exist_acc_money + use_money;

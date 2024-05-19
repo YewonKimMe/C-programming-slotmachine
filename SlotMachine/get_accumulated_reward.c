@@ -3,9 +3,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+    파일명:	get_accumulated_reward.c
+    설명:	텍스트 파일에서 누적 상금 변수를 읽어와서 반환하는 함수
+    종류:	Function
+    수정일: 2024-05-19
+*/
 int get_accumulated_reward(const char* file_name) {
+
     int accumulated_money = 0;
+
     FILE* fp = fopen(file_name, "r");
+
     if (fp == NULL) {
         fprintf(stderr, "파일 %s를 열 수 없습니다.\nSlotMachine/SlotMachine 디렉토리 내에 accm_reward.txt 파일이 존재하는지 확인해 주세요.\n", file_name);
         exit(1);
