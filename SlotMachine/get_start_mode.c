@@ -22,7 +22,7 @@ int get_start_mode(void)
 	int game_mode;
 	while (1) // 특정 케이스를 입력 받을 동안 무한 반복
 	{
-		printf("슬롯머신 게임에 오신 것을 환영합니다.\n게임을 시작하시려면 키보드의 [%s1%s]을 입력해 주세요. 종료하시려면 [%s0%s]을 입력해 주세요.\n>>", blue, reset, red, reset);
+		printf("게임을 시작하시려면 키보드의 [%s1%s]을 입력해 주세요. 종료하시려면 [%s0%s]을 입력해 주세요.\n>>", blue, reset, red, reset);
 		scanf("%d", &game_mode);
 		if (game_mode == START_GAME) // 게임 시작
 			return START_GAME;
