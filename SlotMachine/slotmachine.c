@@ -50,7 +50,11 @@ void change_reward_procedure(int acc_money, int use_money, const char* file_name
     const char* converted_acc_money = convert_money(&acc_money); // 기존 누적 상금을 포멧에 맞추어 변환
 
     const char* converted_new_acc_reward = convert_money(&new_acc_reward); // 새로운 누적 상금을 포멧에 맞추어 변환
-    printf("%s[ >> 누적 JACKPOT 상금이 갱신되었습니다. %s 원 => %s 원 << ]%s\n", yellow, converted_acc_money, converted_new_acc_reward, reset);
+    printf("%s[ >> ★ 누적 JACKPOT 상금이 갱신되었습니다. %s 원 => %s 원 ★ << ]%s\n", yellow, converted_acc_money, converted_new_acc_reward, reset);
+}
+void print_acc_money(char* converted_acc_money)
+{
+    printf("%s★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n★\t\t\t\t\t\t★\n★\t누적 JACKPOT 상금: %s 원\t★\n★\t\t\t\t\t\t★\n★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n\n%s", yellow, converted_acc_money, reset);
 }
 int main(void)
 {   
@@ -63,7 +67,7 @@ int main(void)
 
     const char* converted_acc_money = convert_money(&acc_money);
     printf("%s■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n■\t\t\t\t\t\t■\n■\t슬롯머신 게임에 오신 것을 환영합니다\t■\n■\t\t\t\t\t\t■\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n%s", yellow, reset);
-    printf("%s★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n★\t\t\t\t\t\t★\n★\t누적 JACKPOT 상금: %s 원\t★\n★\t\t\t\t\t\t★\n★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n\n%s", yellow, converted_acc_money, reset);
+    print_acc_money(converted_acc_money);
 
     while (game_flag)
     {
@@ -77,7 +81,8 @@ int main(void)
         {
             printf("===========================================================================================================================\n");
             printf("슬롯머신 게임을 시작합니다.\n");
-            printf("%s★ ★ ★ ★ 현재 누적 JACKPOT 상금: %s 원 ★ ★ ★ ★%s\n", yellow, converted_acc_money, reset);
+            print_acc_money(converted_acc_money);
+     
             printf("사용자는 %s0%s ~ %s5%s 사이의 %s숫자 3개%s를 배팅할 수 있으며, %s배팅한 숫자와 추첨 숫자 및 순서가 일치할 경우%s 일치 판정을 획득합니다.\nㄴ예시) 사용자 입력: %s3 5%s 4, 추첨 결과: %s3 5%s 1 -> 2개 일치\n\n"
             , green, reset, green, reset, blue, reset, yellow, reset, yellow, reset, yellow, reset);
             
