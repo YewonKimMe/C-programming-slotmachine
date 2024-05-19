@@ -41,12 +41,16 @@ const char* yellow = YELLOW;
 const char* orange = ORANGE;
 const char* reset = RESET;
 
+/*
+    change_reward_procedure: 종료 시 텍스트 파일에 누적금액을 업데이트 하는 함수
+*/
 void change_reward_procedure(int acc_money, int use_money, const char* file_name) {
     int new_acc_reward = change_accumulated_reward(acc_money, use_money, file_name); // 누적 상금을 업데이트
-    const char* converted_acc_money = convert_money(&acc_money);
-    const char* converted_new_acc_reward = convert_money(&new_acc_reward);
+
+    const char* converted_acc_money = convert_money(&acc_money); // 기존 누적 상금을 포멧에 맞추어 변환
+
+    const char* converted_new_acc_reward = convert_money(&new_acc_reward); // 새로운 누적 상금을 포멧에 맞추어 변환
     printf("%s[ >> 누적 JACKPOT 상금이 갱신되었습니다. %s 원 => %s 원 << ]%s\n", yellow, converted_acc_money, converted_new_acc_reward, reset);
-    printf("사용자의 요청에 따라 게임을 종료합니다.\n");
 }
 int main(void)
 {   
@@ -54,9 +58,8 @@ int main(void)
     int money = START_MONEY; // TODO 오버플로 발생하는데 타입 바꾸기.
     int user_bat[3] = { 0, 0, 0 }; // 유저가 배팅한 결과를 담는 배열
     int prob_random_selected[3] = { 0,0,0 }; // 추첨 결과로 생성될 결과 배열
-    int game_count = 0;
     int use_money = 0; // 유저가 배팅한 금액 중 잃은 금액 누적 변수
-    int acc_money = get_accumulated_reward(FILE_NAME);// 누적 상금
+    int acc_money = get_accumulated_reward(FILE_NAME);// 게임 시작 전 기존 누적 상금
 
     const char* converted_acc_money = convert_money(&acc_money);
 
@@ -156,4 +159,6 @@ int main(void)
     3. 추첨 함수
 
     4. 결과 검증 함수
+
+    5. 누적 상금 저장 함수
 */
