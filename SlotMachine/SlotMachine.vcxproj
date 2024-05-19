@@ -138,6 +138,7 @@
     <ClCompile Include="convert_money.c" />
     <ClCompile Include="convert_money.h" />
     <ClCompile Include="make_selection.c" />
+    <ClCompile Include="make_selection_test.c" />
     <ClCompile Include="percentage_test.c" />
     <ClCompile Include="print_selection_raffle_result.c" />
     <ClCompile Include="print_test_message.c" />
@@ -154,6 +155,7 @@
     <ClInclude Include="get_start_mode.h" />
     <ClInclude Include="handle_random_event.h" />
     <ClInclude Include="make_selection.h" />
+    <ClInclude Include="make_selection_test.h" />
     <ClInclude Include="percentage_test.h" />
     <ClInclude Include="print_selection_raffle_result.h" />
     <ClInclude Include="print_test_message.h" />

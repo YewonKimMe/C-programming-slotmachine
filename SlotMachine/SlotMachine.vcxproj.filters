@@ -75,6 +75,9 @@
     <ClCompile Include="print_selection_raffle_result.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="make_selection_test.c">
+      <Filter>소스 파일\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="betting.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="print_selection_raffle_result.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="make_selection_test.h">
+      <Filter>헤더 파일\test</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
