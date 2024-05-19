@@ -24,6 +24,7 @@
 #include "percentage_test.h"
 #include "convert_test.h"
 #include "boundary_test.h"
+#include "make_selection_test.h"
 
 #define MAX_PATTERN 7
 #define START_MONEY 10000000
@@ -92,6 +93,7 @@ int main(void)
         }
         else if (game_mode == END_GAME) // 게임 종료
         {
+            // TODO 게임결과 저장 함수 추가
             printf("사용자의 요청에 따라 게임을 종료합니다.\n");
             return 0;
         }
@@ -107,6 +109,10 @@ int main(void)
 
             // 확률 테스트
             percentage_test();
+            printf("===========================================================================================================================\n");
+
+            // 추첨 숫자 일치 테스트
+            make_selection_test();
             printf("===========================================================================================================================\n");
             break;
         }
