@@ -63,7 +63,8 @@ int main(void)
 
     const char* converted_acc_money = convert_money(&acc_money);
     printf("%s■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n■\t\t\t\t\t\t■\n■\t슬롯머신 게임에 오신 것을 환영합니다\t■\n■\t\t\t\t\t\t■\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n%s", yellow, reset);
-    printf("%s★ ★ ★ 현재 누적 JACKPOT 상금: %s 원 ★ ★ ★%s\n", yellow, converted_acc_money, reset);
+    printf("%s★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n★\t\t\t\t\t\t★\n★\t누적 JACKPOT 상금: %s 원\t★\n★\t\t\t\t\t\t★\n★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n\n%s", yellow, converted_acc_money, reset);
+
     while (game_flag)
     {
         if (!(money > 0)) {
