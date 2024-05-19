@@ -129,8 +129,10 @@
   <ItemGroup>
     <ClCompile Include="betting.c" />
     <ClCompile Include="boundary_test.c" />
+    <ClCompile Include="change_accumulated_reward.c" />
     <ClCompile Include="check_boundary.c" />
     <ClCompile Include="convert_test.c" />
+    <ClCompile Include="get_accumulated_reward.c" />
     <ClCompile Include="get_random_value.c" />
     <ClCompile Include="get_selection.c" />
     <ClCompile Include="get_start_mode.c" />
@@ -148,8 +150,11 @@
   <ItemGroup>
     <ClInclude Include="betting.h" />
     <ClInclude Include="boundary_test.h" />
+    <ClInclude Include="change_accumulated_reward.h" />
     <ClInclude Include="check_boundary.h" />
     <ClInclude Include="convert_test.h" />
+    <ClInclude Include="create_game_result.h" />
+    <ClInclude Include="get_accumulated_reward.h" />
     <ClInclude Include="get_random_value.h" />
     <ClInclude Include="get_selection.h" />
     <ClInclude Include="get_start_mode.h" />

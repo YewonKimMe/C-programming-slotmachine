@@ -78,6 +78,12 @@
     <ClCompile Include="make_selection_test.c">
       <Filter>소스 파일\test</Filter>
     </ClCompile>
+    <ClCompile Include="get_accumulated_reward.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="change_accumulated_reward.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="betting.h">
@@ -121,6 +127,15 @@
     </ClInclude>
     <ClInclude Include="make_selection_test.h">
       <Filter>헤더 파일\test</Filter>
+    </ClInclude>
+    <ClInclude Include="create_game_result.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="get_accumulated_reward.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="change_accumulated_reward.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
