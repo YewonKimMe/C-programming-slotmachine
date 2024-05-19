@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "make_selection.h"
 #include "print_test_message.h"
 
@@ -59,11 +60,14 @@ int check_array_make(int array1[3], int array2[3], int code, int* count_7) {
 */
 void make_selection_test(void)
 {
-	int user_input[3] = { 3, 4, 1 }; // 유저가 입력한 값, 0~5 아무거나.
+	int user_input[3] = { 0, 0, 0 }; // 유저가 입력한 값, 0~5 아무거나.
 	int to_be_made[3] = { 0, 0, 0 }; // 생성될 배열
 	int count_7 = 0;
 
-	print_test_message("추첨 숫자 생성/일치 테스트_순서 고려(default)");
+	for (int i = 0; i < 3; i++) {
+		user_input[i] = rand() % 6;
+	}
+	print_test_message("추첨 숫자 생성/일치 테스트_순서 고려(default)\n");
 
 	check_array_make(user_input, to_be_made, code_jackpot, &count_7); // 잭팟 검증
 
