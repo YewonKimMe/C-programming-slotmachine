@@ -161,6 +161,7 @@
     <ClInclude Include="handle_random_event.h" />
     <ClInclude Include="make_selection.h" />
     <ClInclude Include="make_selection_test.h" />
+    <ClInclude Include="pay_and_reset_accum_reward.h" />
     <ClInclude Include="percentage_test.h" />
     <ClInclude Include="print_selection_raffle_result.h" />
     <ClInclude Include="print_test_message.h" />

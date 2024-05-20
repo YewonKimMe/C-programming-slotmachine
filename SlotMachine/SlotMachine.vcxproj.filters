@@ -137,5 +137,8 @@
     <ClInclude Include="change_accumulated_reward.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="pay_and_reset_accum_reward.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

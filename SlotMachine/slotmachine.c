@@ -50,7 +50,10 @@ void change_reward_procedure(int acc_money, int use_money, const char* file_name
     const char* converted_acc_money = convert_money(&acc_money); // 기존 누적 상금을 포멧에 맞추어 변환
 
     const char* converted_new_acc_reward = convert_money(&new_acc_reward); // 새로운 누적 상금을 포멧에 맞추어 변환
-    printf("%s[ >> ★ 누적 JACKPOT 상금이 갱신되었습니다. %s 원 => %s 원 ★ << ]%s\n", yellow, converted_acc_money, converted_new_acc_reward, reset);
+    if (new_acc_reward != acc_money)
+        printf("%s[ >> ★ 누적 JACKPOT 상금이 갱신되었습니다. %s 원 => %s 원 ★ << ]%s\n", yellow, converted_acc_money, converted_new_acc_reward, reset);
+    if (acc_money == 0)
+        printf("[Notice]\tJACKPOT 당첨금 지급으로 인해 누적 상금이 %d 으로 초기화 되었습니다.\n", new_acc_reward);
 }
 void print_acc_money(char* converted_acc_money)
 {
@@ -80,6 +83,8 @@ int main(void)
         if (game_mode == START_GAME) // 게임 시작
         {
             printf("===========================================================================================================================\n");
+            printf("===========================================================================================================================\n");
+            printf("===========================================================================================================================\n\n");
             printf("슬롯머신 게임을 시작합니다.\n");
             print_acc_money(converted_acc_money);
      
@@ -114,7 +119,7 @@ int main(void)
             }
             make_selection(prob_code, user_bat, prob_random_selected);
 
-            int check = handle_random_event(probability, prob_code, &money, betMoney);
+            int check = handle_random_event(probability, prob_code, &money, betMoney, &acc_money);
 
             print_selection_raffle_result(user_bat, prob_random_selected); // 유저 배팅 숫자와 추첨된 숫자를 출력
             
@@ -149,7 +154,7 @@ int main(void)
             // 추첨 숫자 일치 테스트
             make_selection_test();
             printf("===========================================================================================================================\n");
-            break;
+            
         }
 
     }
@@ -169,3 +174,4 @@ int main(void)
 
     5. 누적 상금 저장 함수
 */
+// 경상국립대학교 김예원, 송유찬 _ C프로그래밍 004
