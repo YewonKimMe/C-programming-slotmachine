@@ -28,14 +28,16 @@ extern const char* reset;
 		@Return	: int
 	ºˆ¡§¿œ: 2024-05-01
 */
-int handle_random_event(double probability, int prob_code, int* money, int betting_money)
+int handle_random_event(double probability, int prob_code, int* money, int betting_money, int * acc_money)
 {
-	printf("%s√ﬂ√∑ ∞·∞˙>>\t%s", orange, reset);
+	printf("%s√ﬂ√∑ ∞·∞˙ >> %s", orange, reset);
 	switch (prob_code)
 	{
 	case 0:
 		printf("%s[$$$$$$ >>> @ ¿Ë∆Ã ¥Á√∑ @ <<< $$$$$$]%s\n", yellow, reset);
 		*money += betting_money * JACKPOT_RATIO;
+		*money += *acc_money;
+		*acc_money = 0;
 		break;
 	case 1:
 		printf("%s3∞≥ ¿œƒ°%s\n", blue, reset);
